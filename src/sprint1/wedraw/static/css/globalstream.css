@@ -1,0 +1,105 @@
+body {
+  min-height: 2000px;
+  padding-bottom: 40px;
+  background-color: #ebebe0;
+  background-repeat: no-repeat;
+  background-size:100%;
+}
+
+.post-area{
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom:10px;
+  text-align: right;
+  position: relative;
+}
+
+.form-button{
+  background-color: #99ccff; /* Blue */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  width: 100px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #99ccff;
+  font-size: 16px;
+  margin: auto;
+}
+.form-button:hover{
+  background-color: white;
+  color:black;
+  border: 2px solid #99ccff;
+}
+.form-control {
+  max-width: 800px;
+  height: 120px;
+  margin: 0 auto;
+  border: 5px solid #99ccff;
+  position: relative;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 24px;
+}
+
+.jumbotron{
+
+    background-color: white;
+    max-width: 800px;
+    border: 5px solid #99ccff;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.jumbotron .post-heading{
+  background-color: #f0f0f5;
+  display:block;
+  border-color:transparent;
+  border-style:solid;
+  border-width:2px;
+  margin: 0 auto;
+}
+
+.jumbotron .post-content{
+  padding-left: 5px;
+  font-size: 18px;
+  display:block;
+  border-color:#f0f0f5;
+  border-style:solid;
+  border-width:2px;
+  margin: 0 auto;
+}
+.userprofile{
+  font-size: 16px;
+  color:black;
+  font-weight: bold;
+}
+.delete{
+  font-size:14px;
+  font-weight: bold;
+  text-align: right;
+}
+.date{
+  font-size:14px;
+  text-align: right;
+}
+.form-post input[type="text"] {
+  margin-bottom: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.post-text{
+  font-size:16px;
+  margin: 0 auto;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+.jumbotron .time{
+  font-size:12px;
+}

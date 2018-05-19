@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WeDraw</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "../static/css/game_drawer.css" rel = "stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 user-list">
+                <p><ol id="user-list"></ol></p>
+
+                <a href="/" id="clear-room">Force Quit</a>
+                <a href="{% url 'logout' %}">Log out</a>
+                <p id = "guess-result"></p>
+            </div>
+            {%if 'aa' == 'aa' %}
+            <div class="col-sm-8 col-sm-8 col-md-8 col-lg-8 canvas-area">
+                <div class="container">
+                    <div>
+                        <h4 id="guesser-hint"></h4>
+                        <h4 id="guesser-hint1"></h4>
+                        <h4 id="guesser-hint2"></h4>
+                        <h4 id="guesser-hint3"></h4>
+                        <h4 id="painter-hint">Your Are Drawing : {{words}}</h4>
+                        <h4 hidden id="wordID"> {{wordsid}}</h4>
+                        <h4>Time remaining : <span id = "counter">60</span></h4>
+                        <form id="color-form">
+                            <input type="button" value="Red"/>
+                            <input type="button" value="Yellow"/>
+                            <input type="button" value="Blue"/>
+                            <input type="button" value="Black"/>
+                        </form>
+                        <form id="size-form">
+                            <input type="button" value="Big"/>
+                            <input type="button" value="Medium"/>
+                            <input type="button" value="Small"/>
+                        </form>
+                        <form id="tool-form">
+                            <input type="button" value="Pencil"/>
+                            <input type="button" value="Spray"/>
+                            <input type="button" value="Eraser"/>
+                        </form>
+                        </div>
+                        <button id="clear-btn">clear</button>
+                    </div>
+                    <div>
+                        <canvas id = "drawing-area" width="600" height="550"></canvas>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="{% static "channels/js/websocketbridge.js" %}" type="text/javascript"></script>
+
+
+    <script src="/static/js/combine_draw_guess.js" type="text/javascript"></script>
+</html>

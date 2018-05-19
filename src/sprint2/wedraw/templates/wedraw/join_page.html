@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WeDraw</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "../static/css/game_drawer.css" rel = "stylesheet">
+</head>
+<body>
+    <div class="container">
+    <ul class="rooms">
+        {% for room in rooms %}
+            <li class="room-link" data-room-id="{{ room.id }}">{{ room.label }}</li>
+        {% empty %}
+            <p class="empty">No chat rooms defined. Maybe make some in the <a href="{% url 'admin:index' %}">admin</a>?</p>
+        {% endfor %}
+    </ul>
+    <form class="container form form-horizontal container-central" action = "{% url 'new_room' %}" method ="post">
+            {% csrf_token %}
+            <input class="btn btn-block btn-default" type="submit" value="Create Room!">
+        </form>
+        <form class="container form form-horizontal container-central" action = "{% url 'join-game' %}" method ="post">
+            {% csrf_token %}
+            <input class="btn btn-block btn-default" type="submit" value="Let's Begin!">
+        </form>
+        <a href="{% url 'logout' %}">Log out</a>
+    </div>
+
+</body>
+</html>

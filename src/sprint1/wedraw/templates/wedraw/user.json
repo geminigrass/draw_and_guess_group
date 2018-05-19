@@ -1,0 +1,1 @@
+{"username":"{{user.username}}","userid":"{{user.id}}","userscore":"{{user.userprofile.score}}"}

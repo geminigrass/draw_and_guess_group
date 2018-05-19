@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WeDraw</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "/static/css/game_drawer.css" rel = "stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 user-list">
+                <p>
+                    {% for user in users %}
+                    <ol id="user-list">
+                    User {{ user }} {% if user == request.user.username %}<span id = "Guesser">Score is : {{ score1 }}</span>
+                               {% else %}<span id = "Drawer">Score is : {{ score2 }}</span>{% endif %}
+                    </ol>
+                    {% endfor %}
+                </p>
+
+                <a href="/" id="clear-room">Force Quit</a>
+                <a href="{% url 'logout' %}">Log out</a>
+                <div id="guesser-submit">
+                    <input id="guesser-submit-input" type="text">
+                    <button id="guesser-submit-btn">Guess!</button>
+                </div>
+                <p id = "guess-result"></p>
+
+            </div>
+
+            <p class="room" room-label="{{room.label}}" data-room-id="{{ room.id }}"> You are playing in {{ room.label }}</p>
+
+            <div class="col-sm-8 col-sm-8 col-md-8 col-lg-8 canvas-area">
+                <div class="container">
+                    <div>
+                        <h4 id="guesser-hint"></h4>
+                        <h4 id="guesser-hint1"></h4>
+                        <h4 id="guesser-hint2"></h4>
+                        <h4 id="guesser-hint3"></h4>
+                        <h4 hidden id="wordID"> {{wordsid}}</h4>
+                        <h4>Time remaining : <span id = "counter">60</span></h4>
+                        </div>
+                    </div>
+                    <div>
+                        <canvas id = "displaying-area" width="600" height="550"/></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="{% static "channels/js/websocketbridge.js" %}" type="text/javascript"></script>
+    <script src="/static/js/forguesser.js" type="text/javascript"></script>
+</html>
